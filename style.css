@@ -259,6 +259,10 @@ button:disabled {
   cursor: auto;
 }
 
+::-moz-focus-inner {
+  border: 0;
+}
+
 p {
   line-height: 1.5rem;
 }
@@ -346,12 +350,27 @@ em {
 
 .Home__container__13iC4 {
   background: var(--app-bg-home);
-  height: 100%;
+  min-height: 100vh;
+  max-height: 100%;
   display: grid;
   grid-template:
     'header header' auto
     'nav intro' 1fr
     'footer footer' auto / auto 50%;
+}
+
+@media only screen and (max-width: 840px) {
+  .Home__container__13iC4 {
+    grid-template:
+      'header header' auto
+      'nav nav' 1fr
+      'intro intro' auto
+      'footer footer' auto / auto 50%;
+  }
+
+  .Home__social__3HHOZ {
+    flex-direction: column;
+  }
 }
 
 .Home__header__2OY7V {
@@ -454,6 +473,13 @@ em {
   --content-spacing: 3rem;
   padding: var(--content-spacing);
   padding-top: calc(var(--app-titlebar-height) + var(--content-spacing));
+  overflow: auto;
+}
+
+@media only screen and (max-width: 840px) {
+  .Main__content__2Zgbj {
+    --content-spacing: 1rem;
+  }
 }
 
 .TitleBar__container__Uhk_U {
@@ -906,6 +932,12 @@ em {
   flex: 0 1 auto;
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+@media only screen and (max-width: 840px) {
+  .MenuTabs__tabList__1GJbM {
+    flex-direction: column;
+  }
 }
 
 .Changelog__markdown-body__1Jerh {
@@ -1732,9 +1764,20 @@ em {
   position: relative;
   --overlay-spacing: 50px;
   --overlay-z-index: 10;
-  --playback-overlay-z-index: 9;
+  --overlay-list-max-width: none;
+  --playback-overlay-z-index: 11;
   --overlay-anim-duration: 160ms;
-  --chat-docked-width: 340px;
+  --chat-docked-width: 21rem;
+  --chat-float-bottom-spacing: 150px;
+}
+
+@media only screen and (max-width: 840px) {
+  .GameLobby__container__nffOJ {
+    --overlay-spacing: 0px;
+    --overlay-list-max-width: 42%;
+    --chat-docked-width: 15rem;
+    --chat-float-bottom-spacing: 3rem;
+  }
 }
 
 .GameLobby__overlay__yGUCn {
@@ -1796,7 +1839,7 @@ em {
   position: absolute;
   z-index: var(--overlay-z-index);
   left: var(--overlay-spacing);
-  bottom: 150px;
+  bottom: var(--chat-float-bottom-spacing);
   width: 450px;
 
   --num-chat-lines: 6.85;
@@ -1817,6 +1860,7 @@ em {
 .GameLobby__users__1kIhF,
 .GameLobby__queue__1ZgnH {
   top: calc(var(--overlay-spacing) + var(--app-titlebar-height));
+  max-width: var(--overlay-list-max-width);
 }
 
 .GameLobby__users__1kIhF {
@@ -2425,6 +2469,29 @@ p.SafeBrowsePrompt__emoji__jQMKk {
   right: 0;
 }
 
+.Popup__container__10R4g {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  clip-path: inset(0 0); /* overflow: hidden not working for some reason */
+}
+
+.Popup__background__20PTq {
+  z-index: 0;
+  background-size: cover;
+  background-position: 50% 50%;
+  filter: blur(10px) brightness(0.6);
+  transform: scale(1.05); /* hide blurred edges */
+}
+
+.Popup__text__oWe7U {
+  z-index: 1;
+  text-align: center;
+}
+
 .WebviewError__container__3p7Gq {
   background: linear-gradient(0deg, rgba(222, 121, 121, 0.5), var(--color-transparent-dark-50));
   text-align: left;
@@ -2474,6 +2541,16 @@ p.WebviewError__emoji__SWZHz {
   margin: 1rem 1.5rem 1.5rem 1.5rem;
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 0.5rem;
+}
+
+@media only screen and (max-width: 840px) {
+  .WebBrowser__content__1TOiO {
+    margin: 0;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+  }
 }
 
 .Controls__container__2JDc9 {
@@ -2752,7 +2829,6 @@ p.WebviewError__emoji__SWZHz {
 .SettingsMenu__container__o11xO {
   width: 100%;
   max-width: 800px;
-  height: 100%;
   display: flex;
   flex-flow: row nowrap;
   flex: 1 0 auto;
