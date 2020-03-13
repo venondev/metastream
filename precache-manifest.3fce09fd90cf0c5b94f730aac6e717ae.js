@@ -16,11 +16,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/2.app.prod.js.map"
   },
   {
-    "revision": "0cf6e7524d134a5b7fd8",
+    "revision": "f09ce59abb1885c9971a",
     "url": "/app.prod.js"
   },
   {
-    "revision": "0cf6e7524d134a5b7fd8",
+    "revision": "f09ce59abb1885c9971a",
     "url": "/app.prod.js.map"
   },
   {
@@ -364,7 +364,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/images/icon-512.png"
   },
   {
-    "revision": "454b4cbfd69d2925935be6aef2a30970",
+    "revision": "2fdbd63fd94bdcb933ad9fae90881e69",
     "url": "/index.html"
   },
   {
@@ -376,11 +376,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/mediasession.mp4"
   },
   {
-    "revision": "0cf6e7524d134a5b7fd8",
+    "revision": "f09ce59abb1885c9971a",
     "url": "/style.css"
   },
   {
-    "revision": "0cf6e7524d134a5b7fd8",
+    "revision": "f09ce59abb1885c9971a",
     "url": "/style.css.map"
   },
   {
